@@ -57,6 +57,15 @@
       "quickSearch": 0,
       "filterable": 0
     },
+     {
+      "key": "电影天堂",
+      "name": "电影天堂",
+      "type": 0,
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
     {
       "key": "苹果",
       "name": "🍎┃小苹果┃IJK",
