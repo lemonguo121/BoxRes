@@ -67,20 +67,47 @@
       "quickSearch": 1
     },
     {
-      "key": "苹果",
-      "name": "🍎┃小苹果┃IJK",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "jar": "./lib/fty.jar",
+      "key": "如意资源网",
+      "name": "如意资源网",
+      "type": 0,
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/xml/",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
     },
     {
-      "key": "如意资源网",
-      "name": "如意资源网",
+      "key": "影剧资源网",
+      "name": "影剧资源网",
+      "type": 1,
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/at/josn/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "aqy",
+      "name": "aqy",
       "type": 0,
-      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/xml/",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod/at/xml/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "魔都资源采集网",
+      "name": "魔都资源采集网",
+      "type": 0,
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/at/xml/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "苹果",
+      "name": "🍎┃小苹果┃IJK",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "jar": "./lib/fty.jar",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
