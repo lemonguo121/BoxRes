@@ -597,6 +597,14 @@
       "api": "https://91jpzyw.com/api.php/provide/vod/at/json",
       "searchable": 1,
       "quickSearch": 0
+    },
+    {
+      "key": "黑料",
+      "name": "黑料",
+      "type": 1,
+      "api": "https://www.heiliaozyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 0
     },{
       "key": "幸资源",
       "name": "幸资源",
