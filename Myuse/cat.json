@@ -57,7 +57,7 @@
       "quickSearch": 0,
       "filterable": 0
     },
-     {
+    {
       "key": "电影天堂",
       "name": "电影天堂",
       "type": 0,
@@ -89,6 +89,15 @@
       "name": "aqy",
       "type": 0,
       "api": "https://www.iqiyizyapi.com/api.php/provide/vod/at/xml/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "大众资源",
+      "name": "大众资源",
+      "type": 0,
+      "api": " https://cdn.dzzyapi.com/api.php/provide/vod/at/xml/",
       "playUrl": "",
       "searchable": 1,
       "quickSearch": 1
@@ -148,7 +157,7 @@
       "searchable": 1,
       "quickSearch": 1
     },
-     {
+    {
       "key": "极速资源",
       "name": "极速资源",
       "type": 1,
