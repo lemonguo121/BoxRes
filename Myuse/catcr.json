@@ -113,8 +113,8 @@
     {
       "key": "如意资源网",
       "name": "如意资源网",
-      "type": 1,
-      "api": "  https://cj.rycjapi.com/api.php/provide/vod/?ac=list",
+      "type": 0,
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/xml/",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
@@ -154,6 +154,15 @@
       "playUrl": "",
       "searchable": 1,
       "quickSearch": 1
+    },
+    {
+      "key": "巨量资源网",
+      "name": "巨量资源网",
+      "type": 0,
+      "api": "https://api.juliang.live/api/provide/vod/at/xml/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
     },
     {
       "key": "豆瓣资源",

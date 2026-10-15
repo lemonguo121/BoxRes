@@ -79,7 +79,7 @@
     {
       "key": "如意资源网",
       "name": "如意资源网",
-      "type": 1,
+      "type": 0,
       "api": "https://cj.rycjapi.com/api.php/provide/vod/at/xml/",
       "searchable": 1,
       "quickSearch": 1,
