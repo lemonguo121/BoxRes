@@ -111,6 +111,24 @@
       "quickSearch": 1
     },
     {
+      "key": "如意资源网",
+      "name": "如意资源网",
+      "type": 1,
+      "api": "  https://cj.rycjapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "电影天堂",
+      "name": "电影天堂",
+      "type": 0,
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "茅台资源",
       "name": "茅台资源",
       "type": 1,
@@ -160,15 +178,6 @@
       "name": "天涯资源",
       "type": 1,
       "api": "https://tyyszyapi.com/api.php/provide/vod/at/?ac=list",
-      "playUrl": "",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "电影天堂",
-      "name": "电影天堂",
-      "type": 0,
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml/",
       "playUrl": "",
       "searchable": 1,
       "quickSearch": 1

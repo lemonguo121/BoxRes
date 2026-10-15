@@ -77,6 +77,15 @@
       "changeable": 1
     },
     {
+      "key": "如意资源网",
+      "name": "如意资源网",
+      "type": 1,
+      "api": "  https://cj.rycjapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
       "key": "新浪资源",
       "name": "新浪资源",
       "type": 0,
