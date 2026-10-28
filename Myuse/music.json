@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "musicSources": [
+    {
+      "id": "aiting",
+      "name": "爱听",
+      "baseUrl": "https://music.2t58.com",
+      "rules": {
+        "search": {
+          "music": {
+            "url": "/so/{query}/{page}.html",
+            "format": "html",
+            "list": "div.play_list li",
+            "pageSize": 68,
+            "fields": {
+              "id": {
+                "selector": "a",
+                "attribute": "href",
+                "regex": "/song/(.*?)\\.html",
+                "group": 1
+              },
+              "title": {
+                "selector": "a",
+                "split": " - ",
+                "index": 1,
+                "remainder": true
+              },
+              "artist": {
+                "selector": "a",
+                "split": " - ",
+                "index": 0
+              },
+              "artwork": {
+                "selector": "img",
+                "attribute": "src",
+                "url": true
+              }
+            }
+          }
+        },
+        "topLists": {
+          "url": "/list/top.html",
+          "format": "html",
+          "group": "官方榜单",
+          "list": "div.ilingku_fl li",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/list/(.*?)\\.html",
+              "group": 1
+            },
+            "title": {
+              "selector": "a"
+            },
+            "description": {
+              "value": "来自爱听音乐"
+            }
+          },
+          "prepend": [
+            {
+              "id": "new",
+              "title": "新歌榜",
+              "description": "来自爱听音乐"
+            },
+            {
+              "id": "top",
+              "title": "飙升榜",
+              "description": "来自爱听音乐"
+            }
+          ]
+        },
+        "topListDetail": {
+          "url": "/list/{id}/{page}.html",
+          "format": "html",
+          "list": "div.play_list li",
+          "pageSize": 68,
+          "maxPages": 3,
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/song/(.*?)\\.html",
+              "group": 1
+            },
+            "title": {
+              "selector": "a",
+              "split": "_",
+              "index": 1,
+              "remainder": true
+            },
+            "artist": {
+              "selector": "a",
+              "split": "_",
+              "index": 0
+            },
+            "artwork": {
+              "selector": "img",
+              "attribute": "src",
+              "url": true
+            }
+          }
+        },
+        "media": {
+          "page": "/song/{id}.html",
+          "format": "json",
+          "fetch": {
+            "url": "/js/play.php",
+            "method": "POST",
+            "form": {
+              "id": "{id}",
+              "type": "music"
+            },
+            "decode": {
+              "url": "decodeUrl"
+            }
+          },
+          "fields": {
+            "url": {
+              "path": "url",
+              "url": true,
+              "absolute": true
+            }
+          }
+        },
+        "lyric": {
+          "page": "/song/{id}.html",
+          "format": "text",
+          "fetch": {
+            "url": "/plug/down.php",
+            "query": {
+              "ac": "music",
+              "lk": "lrc",
+              "id": "{id}"
+            }
+          },
+          "fields": {
+            "rawLrc": {
+              "path": "",
+              "replace": [
+                {
+                  "pattern": "(www\\.44h4\\.com|www\\.2t58\\.com|44h4|2t58|欢迎来访|爱听音乐网)",
+                  "with": "****"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "zz",
+      "name": "种子",
+      "baseUrl": "https://zz123.com",
+      "rules": {
+        "search": {
+          "music": {
+            "url": "/ajax/?act=search&key={query}&lang=",
+            "format": "json",
+            "list": "data",
+            "fields": {
+              "id": {
+                "path": "id"
+              },
+              "title": {
+                "path": "mname"
+              },
+              "artist": {
+                "path": "sname"
+              },
+              "artwork": {
+                "path": "pic",
+                "url": true
+              },
+              "duration": {
+                "path": "play_time",
+                "seconds": true
+              }
+            }
+          },
+          "album": {
+            "url": "/ajax/?act=search&key={query}&lang=&type=album",
+            "format": "json",
+            "list": "data",
+            "fields": {
+              "id": {
+                "path": "id"
+              },
+              "title": {
+                "path": "mname"
+              },
+              "artist": {
+                "path": "sname"
+              },
+              "artwork": {
+                "path": "pic",
+                "url": true
+              },
+              "duration": {
+                "path": "play_time",
+                "seconds": true
+              }
+            }
+          },
+          "artist": {
+            "url": "/ajax/?act=search&key={query}&lang=&type=artist",
+            "format": "json",
+            "list": "data",
+            "fields": {
+              "id": {
+                "path": "id"
+              },
+              "title": {
+                "path": "mname"
+              },
+              "artist": {
+                "path": "sname"
+              },
+              "artwork": {
+                "path": "pic",
+                "url": true
+              },
+              "duration": {
+                "path": "play_time",
+                "seconds": true
+              }
+            }
+          },
+          "sheet": {
+            "url": "/ajax/?act=search&key={query}&lang=&type=sheet",
+            "format": "json",
+            "list": "data",
+            "fields": {
+              "id": {
+                "path": "id"
+              },
+              "title": {
+                "path": "mname"
+              },
+              "artist": {
+                "path": "sname"
+              },
+              "artwork": {
+                "path": "pic",
+                "url": true
+              },
+              "duration": {
+                "path": "play_time",
+                "seconds": true
+              }
+            }
+          }
+        },
+        "topLists": {
+          "url": "/",
+          "format": "html",
+          "list": ".d-none .cate-list a",
+          "group": "种子音乐",
+          "fields": {
+            "id": {
+              "attribute": "href",
+              "regex": "/list/(\\w+)\\.htm",
+              "group": 1
+            },
+            "title": {},
+            "description": {
+              "value": "来自种子音乐"
+            }
+          }
+        },
+        "topListDetail": {
+          "url": "/ajax/?act=topsong&topid={id}&lang=",
+          "format": "json",
+          "list": "data",
+          "fields": {
+            "id": {
+              "path": "id"
+            },
+            "title": {
+              "path": "mname"
+            },
+            "artist": {
+              "path": "sname"
+            },
+            "artwork": {
+              "path": "pic",
+              "url": true
+            },
+            "duration": {
+              "path": "play_time",
+              "seconds": true
+            }
+          }
+        },
+        "media": {
+          "url": "/ajax/?act=songinfo&id={id}&lang=",
+          "format": "json",
+          "fields": {
+            "url": {
+              "path": "data.mp3",
+              "url": true
+            }
+          }
+        },
+        "lyric": {
+          "url": "/ajax/?act=songinfo&id={id}&lang=",
+          "format": "json",
+          "fields": {
+            "rawLrc": {
+              "path": "data.lrc"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
