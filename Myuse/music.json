@@ -145,6 +145,22 @@
               ]
             }
           }
+        },
+        "artwork": {
+          "url": "/js/play.php",
+          "method": "POST",
+          "format": "json",
+          "referer": "/song/{id}.html",
+          "form": {
+            "id": "{id}",
+            "type": "music"
+          },
+          "fields": {
+            "artwork": {
+              "path": "pic",
+              "url": true
+            }
+          }
         }
       }
     },
