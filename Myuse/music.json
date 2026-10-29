@@ -4,7 +4,7 @@
     {
       "id": "aiting",
       "name": "爱听",
-      "baseUrl": "https://music.2t58.com",
+      "baseUrl": "https://www.2t58.com",
       "rules": {
         "search": {
           "music": {
@@ -162,7 +162,10 @@
             }
           }
         }
-      }
+      },
+      "legacyBaseUrls": [
+        "https://music.2t58.com"
+      ]
     },
     {
       "id": "zz",
