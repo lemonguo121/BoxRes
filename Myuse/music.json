@@ -331,6 +331,277 @@
           }
         }
       }
+    },
+    {
+      "id": "htqyy",
+      "name": "好听轻音乐",
+      "baseUrl": "http://www.htqyy.com",
+      "rules": {
+        "search": {
+          "music": {
+            "format": "html",
+            "list": "#musicList li",
+            "fields": {
+              "id": {
+                "selector": ".title a[href^=\"/play/\"]",
+                "attribute": "href",
+                "regex": "/play/(\\d+)",
+                "group": 1
+              },
+              "title": {
+                "selector": ".title a[href^=\"/play/\"]",
+                "replace": [
+                  {
+                    "pattern": "\\s+",
+                    "with": " "
+                  }
+                ]
+              },
+              "artist": {
+                "selector": ".artistName a"
+              },
+              "duration": {
+                "value": "0"
+              },
+              "artwork": {
+                "value": ""
+              }
+            },
+            "page": "/",
+            "fetch": {
+              "url": "/home/search?wd={query}"
+            }
+          }
+        },
+        "topLists": {
+          "url": "/top",
+          "format": "html",
+          "list": ".topL a[href^=\"/top/\"]:not([href=\"/top/gedan\"])",
+          "group": "好听轻音乐",
+          "fields": {
+            "id": {
+              "attribute": "href",
+              "regex": "/top/([A-Za-z]+)"
+            },
+            "title": {
+              "attribute": "title"
+            },
+            "description": {
+              "value": "来自好听轻音乐，每榜最多读取200首"
+            }
+          }
+        },
+        "topListDetail": {
+          "format": "html",
+          "list": "#musicList li",
+          "pageStart": 0,
+          "pageSize": 20,
+          "maxPages": 10,
+          "fields": {
+            "id": {
+              "selector": ".title a[href^=\"/play/\"]",
+              "attribute": "href",
+              "regex": "/play/(\\d+)",
+              "group": 1
+            },
+            "title": {
+              "selector": ".title a[href^=\"/play/\"]",
+              "replace": [
+                {
+                  "pattern": "\\s+",
+                  "with": " "
+                }
+              ]
+            },
+            "artist": {
+              "selector": ".artistName a"
+            },
+            "duration": {
+              "value": "0"
+            },
+            "artwork": {
+              "value": ""
+            }
+          },
+          "page": "/top/{id}",
+          "fetch": {
+            "url": "/top/musicList/{id}?pageIndex={page}&pageSize=20",
+            "headers": {
+              "X-Requested-With": "XMLHttpRequest"
+            }
+          }
+        },
+        "media": {
+          "page": "/",
+          "format": "html",
+          "fetch": {
+            "url": "/play/{id}"
+          },
+          "headers": {
+            "Referer": "http://www.htqyy.com/play/{id}"
+          },
+          "useBrowserUserAgent": true,
+          "fields": {
+            "url": {
+              "concat": [
+                {
+                  "selector": "html",
+                  "regex": "\\bvar\\s+(?:fileHost\\s*=\\s*|playPath\\s*=\\s*window\\.playPath\\s*\\|\\|\\s*)[\\\"\\x27]([^\\\"\\x27]+)"
+                },
+                {
+                  "selector": "html",
+                  "regex": "(?:PageData\\.musicId|\\bvar\\s+musicId)\\s*=\\s*[\\\"\\x27](\\d+)"
+                },
+                {
+                  "value": "/"
+                },
+                {
+                  "selector": "html",
+                  "regex": "(?:PageData\\.format\\s*=\\s*|\\bfmt\\s*:\\s*)[\\\"\\x27]([^\\\"\\x27]+)"
+                },
+                {
+                  "value": "/"
+                },
+                {
+                  "selector": "html",
+                  "regex": "(?:PageData\\.code|\\bvar\\s+code)\\s*=\\s*[\\\"\\x27]?(\\d+)"
+                }
+              ],
+              "url": true,
+              "absolute": true
+            }
+          }
+        },
+        "artwork": {
+          "url": "/play/{id}",
+          "format": "html",
+          "referer": "/",
+          "fields": {
+            "artwork": {
+              "selector": "html",
+              "regex": "(?:\\bvar\\s+imgUrl|\\bmedia2\\.pic)\\s*=\\s*[\\\"\\x27]([^\\\"\\x27]+)",
+              "url": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gequla",
+      "name": "歌曲宝（gequla）",
+      "baseUrl": "https://www.gequla.com",
+      "rules": {
+        "search": {
+          "music": {
+            "url": "https://open.puduoduo.top/zb_users/plugin/kk_music/api.php?act=searchmusic&word={query}&limit=50",
+            "format": "json",
+            "list": "data.songs",
+            "fields": {
+              "id": {
+                "path": "id"
+              },
+              "title": {
+                "path": "name"
+              },
+              "artist": {
+                "path": "artists"
+              },
+              "duration": {
+                "path": "duration",
+                "regex": "^(\\d+)\\d{3}$"
+              },
+              "artwork": {
+                "path": "picUrl",
+                "url": true,
+                "replace": [
+                  {
+                    "pattern": "^http:",
+                    "with": "https:"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "topLists": {
+          "url": "/",
+          "format": "html",
+          "list": ".charts-wrap .chart-card:last-child",
+          "group": "歌曲宝（gequla）",
+          "fields": {
+            "id": {
+              "value": "hot"
+            },
+            "title": {
+              "selector": ".panel-title"
+            },
+            "description": {
+              "value": "网站首页展示的热歌，非完整排行榜"
+            }
+          }
+        },
+        "topListDetail": {
+          "url": "/",
+          "format": "html",
+          "list": ".charts-wrap .chart-card:last-child .chart-item",
+          "fields": {
+            "id": {
+              "selector": "a.chart-song",
+              "attribute": "href",
+              "regex": "[?&]id=(\\d+)"
+            },
+            "title": {
+              "selector": "a.chart-song"
+            },
+            "artist": {
+              "selector": ".listen-time"
+            },
+            "duration": {
+              "value": "0"
+            },
+            "artwork": {
+              "value": ""
+            }
+          }
+        },
+        "media": {
+          "url": "https://open.puduoduo.top/zb_users/plugin/kk_music/api.php?act=musicurl&id={id}&quality=standard",
+          "format": "json",
+          "fields": {
+            "url": {
+              "path": "data.url",
+              "url": true,
+              "absolute": true
+            }
+          }
+        },
+        "artwork": {
+          "url": "https://open.puduoduo.top/zb_users/plugin/kk_music/api.php?act=songdetail&id={id}",
+          "format": "json",
+          "referer": "/",
+          "fields": {
+            "artwork": {
+              "path": "data.cover",
+              "url": true,
+              "replace": [
+                {
+                  "pattern": "^http:",
+                  "with": "https:"
+                }
+              ]
+            }
+          }
+        },
+        "lyric": {
+          "url": "https://open.puduoduo.top/zb_users/plugin/kk_music/api.php?act=lyric&id={id}",
+          "format": "json",
+          "fields": {
+            "rawLrc": {
+              "path": "data.lyric"
+            }
+          }
+        }
+      }
     }
   ]
 }
