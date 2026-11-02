@@ -100,45 +100,45 @@
       "customOrder": 0,
       "lastUpdateTime": 1619883443705,
       "ruleHome": {
-        "bookList": "div.cate-comic-list.clearfix .common-comic-item",
-        "name": "p.comic__title a@text",
-        "bookUrl": "p.comic__title a@href",
+        "bookList": "div.cate-comic-list.clearfix .common-comic-item, .catagory-list .comic-item",
+        "name": "p.comic__title a, p.comic-name@text",
+        "bookUrl": "p.comic__title a, a[href*=\"/comic/\"]@href",
         "author": "",
-        "coverUrl": "a.cover img@data-original",
+        "coverUrl": "a.cover img, img.cover@data-original",
         "intro": "",
         "kind": "",
         "lastChapter": "",
         "wordCount": ""
       },
       "ruleSearch": {
-        "bookList": ".common-comic-item",
-        "name": "p.comic__title a@text",
+        "bookList": ".common-comic-item, .search-result .comic-list-item",
+        "name": "p.comic__title a, p.comic-name a@text",
         "author": "",
         "intro": "p.comic-feature@text",
-        "bookUrl": "p.comic__title a@href",
+        "bookUrl": "p.comic__title a, p.comic-name a@href",
         "urlSuffix": "",
         "coverUrl": "img@data-original"
       },
       "ruleExplore": {
         "loadMoreType": 1,
-        "loadMoreFun": "document.querySelector('.chapter__more a .down')?.click();"
+        "loadMoreFun": "document.querySelector('.chapter__more a .down, .catalog-list .show-more')?.click();"
       },
       "ruleBookInfo": {
-        "name": "p.comic-title.j-comic-title@text",
-        "author": "div.comic-author span.name a@text",
+        "name": "p.comic-title.j-comic-title, .detail-container h1.comic-name@text",
+        "author": "div.comic-author span.name a, .detail-container .au-name@text",
         "kind": "div.comic-status span.text b a@text",
-        "lastChapter": "#lastchap",
-        "intro": "div.comic-intro p.intro-total@text",
-        "coverUrl": "div.de-info__cover img@src"
+        "lastChapter": "#lastchap, .catalog-box .comic-update-info",
+        "intro": "div.comic-intro p.intro-total, .detail-intro .comic-intro@text",
+        "coverUrl": "div.de-info__cover img, .detail-container .box-back@src"
       },
       "ruleToc": {
         "needReversed": true,
-        "chapterList": "div.chapter__list ul.chapter__list-box li.j-chapter-item",
+        "chapterList": "div.chapter__list ul.chapter__list-box li.j-chapter-item, .catalog-list li.chapter-item",
         "chapterName": "a@text",
         "chapterUrl": "a@href"
       },
       "ruleContent": {
-        "content": "div.rd-article__pic img@data-original",
+        "content": "div.rd-article__pic img, #mainView .comic-page img",
         "replaceRegex": "",
         "title": ""
       }

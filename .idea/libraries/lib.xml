@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/fix12210.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/alisz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/custom_spider_fongmi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/cc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/dj0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/guozi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/fix0804.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/pg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/mypg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/fty.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/xbpq.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/guo.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/20240204.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/custom_spider_catvod.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/fm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/xyq.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/yg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/guodaxia.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Myuse/lib/custom_spider.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
